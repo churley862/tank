@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <iterator>
 #include "world.hpp"
 
 using namespace std;
@@ -56,11 +56,12 @@ void World::run()
           running = false;
 
         SDL_RenderClear(renderer);
-        for (WorldObject* wo : stuff)
+        for (DisplayObject* wo : stuff)
         {
            wo->tick();
         }
         SDL_RenderPresent(renderer);
+        checkCollisions();
         fpsTimer.waitFor(16);
     }
 }
@@ -68,4 +69,26 @@ void World::run()
 void Background::tick()
 {
     SDL_RenderCopy(renderer(),background,0,0);
+}
+
+void World::checkCollisions()
+{
+    for (auto pos1 = stuff.begin();pos1 !=stuff.end(); pos1++)
+    {
+        if (WorldObject* wobj1 = dynamic_cast<WorldObject*>(*pos1))
+        {
+            for (auto pos2 = next(pos1); pos2 !=stuff.end(); pos2++)
+            {
+                if(WorldObject* wobj2 = dynamic_cast<WorldObject*>(*pos2))
+                {
+                    if(wobj1->is_overlap(*wobj2))
+                    {
+                        wobj1->collide(*wobj2);
+                        wobj2->collide(*wobj1);
+                    }
+                }
+            }
+                
+        }
+    }
 }

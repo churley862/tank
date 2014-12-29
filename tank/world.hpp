@@ -7,11 +7,11 @@
 #include "timer.h"
 class World;
 
-class WorldObject
+class DisplayObject
 {
 public:
-    WorldObject() {}
-    virtual ~WorldObject() {}
+    DisplayObject() {}
+    virtual ~DisplayObject() {}
     virtual void tick() {}
     virtual bool is_dead() { return false; }
 
@@ -20,6 +20,14 @@ protected:
     World& world();
 };
 
+class WorldObject : public DisplayObject
+{
+public :
+    virtual bool is_overlap(const WorldObject& wo){return SDL_HasIntersection(rect(), wo.rect());}
+    virtual void collide(WorldObject& wo) {}
+    
+    const SDL_Rect* rect() const { return nullptr; }
+};
 
 class World
 {
@@ -32,31 +40,33 @@ public:
 
     virtual ~World();
     void run();
-    void addObject(WorldObject* obj) { stuff.push_back(obj); }
+    void addObject(DisplayObject* obj) { stuff.push_back(obj); }
 
     SDL_Texture* loadTexture(const char* fileName);
     SDL_Renderer* getRenderer() { return renderer; }
 
 private:
     World();
+    void checkCollisions();
+    
     SDL_Window* window;
     SDL_Renderer* renderer;
     Timer fpsTimer;
 
-    std::list<WorldObject*> stuff;
+    std::list<DisplayObject*> stuff;
 };
 
-inline SDL_Renderer* WorldObject::renderer()
+inline SDL_Renderer* DisplayObject::renderer()
 {
     return world().getRenderer();
 }
 
-inline World& WorldObject::world()
+inline World& DisplayObject::world()
 {
     return World::getWorld();
 }
 
-class Background : public WorldObject
+class Background : public DisplayObject
 {
 public:
     Background();

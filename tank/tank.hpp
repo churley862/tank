@@ -12,6 +12,7 @@ public:
     virtual ~Tank();
 
     virtual void tick();
+    virtual const SDL_Rect* rect() const { return &loc; }
 
 protected:
     SDL_Texture* tank;
