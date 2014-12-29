@@ -13,7 +13,10 @@ public:
     DisplayObject() {}
     virtual ~DisplayObject() {}
     virtual void tick() {}
-    virtual bool is_dead() { return false; }
+    virtual bool is_dead()
+    {
+        return false;
+    }
 
 protected:
     SDL_Renderer* renderer();
@@ -23,10 +26,16 @@ protected:
 class WorldObject : public DisplayObject
 {
 public :
-    virtual bool is_overlap(const WorldObject& wo){return SDL_HasIntersection(rect(), wo.rect());}
+    virtual bool is_overlap(const WorldObject& wo)
+    {
+        return SDL_HasIntersection(rect(), wo.rect());
+    }
     virtual void collide(WorldObject& wo) {}
-    
-    const SDL_Rect* rect() const { return nullptr; }
+
+    virtual const SDL_Rect* rect() const
+    {
+        return nullptr;
+    }
 };
 
 class World
@@ -40,15 +49,21 @@ public:
 
     virtual ~World();
     void run();
-    void addObject(DisplayObject* obj) { stuff.push_back(obj); }
+    void addObject(DisplayObject* obj)
+    {
+        stuff.push_back(obj);
+    }
 
     SDL_Texture* loadTexture(const char* fileName);
-    SDL_Renderer* getRenderer() { return renderer; }
+    SDL_Renderer* getRenderer()
+    {
+        return renderer;
+    }
 
 private:
     World();
     void checkCollisions();
-    
+
     SDL_Window* window;
     SDL_Renderer* renderer;
     Timer fpsTimer;
@@ -71,7 +86,7 @@ class Background : public DisplayObject
 public:
     Background();
     virtual ~Background();
-  //  bool gBackground = SDL_LoadBMP("assets/desert.bmp/");
+    //  bool gBackground = SDL_LoadBMP("assets/desert.bmp/");
     virtual void tick();
 
 

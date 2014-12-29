@@ -11,19 +11,29 @@
 
 #include <stdio.h>
 #include "sdl.h"
-class Timer {
+class Timer
+{
 public:
-    Timer(){reset();}
-    void reset(){startTime = SDL_GetTicks();}
-    int getTime (){return SDL_GetTicks()- startTime;}
-void waitFor (int ms)
+    Timer()
+    {
+        reset();
+    }
+    void reset()
+    {
+        startTime = SDL_GetTicks();
+    }
+    int getTime ()
+    {
+        return SDL_GetTicks()- startTime;
+    }
+    void waitFor (int ms)
     {
         int delay=(ms-getTime());
         if (delay > 0)
             SDL_Delay(delay);
-    
+
     }
-    
+
 
 private :
     Uint32 startTime;

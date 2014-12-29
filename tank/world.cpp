@@ -23,7 +23,7 @@ SDL_Texture* World::loadTexture(const char*fileName)
     return IMG_LoadTexture(renderer, fileName);
 }
 
- Background :: Background()
+Background :: Background()
 {
 
     background = World::getWorld().loadTexture("assets/Desert.bmp");
@@ -43,7 +43,7 @@ Background :: ~Background()
 
 void World::run()
 {
-    
+
     SDL_Event e;
     bool running = true;
 
@@ -53,12 +53,12 @@ void World::run()
         SDL_PollEvent(&e);
 
         if (e.type == SDL_QUIT)
-          running = false;
+            running = false;
 
         SDL_RenderClear(renderer);
         for (DisplayObject* wo : stuff)
         {
-           wo->tick();
+            wo->tick();
         }
         SDL_RenderPresent(renderer);
         checkCollisions();
@@ -73,7 +73,7 @@ void Background::tick()
 
 void World::checkCollisions()
 {
-    for (auto pos1 = stuff.begin();pos1 !=stuff.end(); pos1++)
+    for (auto pos1 = stuff.begin(); pos1 !=stuff.end(); pos1++)
     {
         if (WorldObject* wobj1 = dynamic_cast<WorldObject*>(*pos1))
         {
@@ -88,7 +88,7 @@ void World::checkCollisions()
                     }
                 }
             }
-                
+
         }
     }
 }

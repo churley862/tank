@@ -13,10 +13,11 @@
 #include "world.hpp"
 class Projectile : public WorldObject
 {
- public :
+public :
     Projectile(int init_x,int init_y);
     ~Projectile();
-    
+
+    const SDL_Rect* rect() const { return &loc; }
     void tick();
 private :
     double x,y;
@@ -25,7 +26,7 @@ private :
     SDL_Rect loc;
 
 
-        
+
 };
 
 
