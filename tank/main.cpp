@@ -1,15 +1,21 @@
-//
-//  main.cpp
-//  tank
-//
-//  Created by Kitchen on 12/27/14.
-//  Copyright (c) 2014 Collin. All rights reserved.
-//
+#include "world.hpp"
+#include "tank.hpp"
+int main (int argc, char* args[])
+{
 
-#include <iostream>
+    World& world = World::getWorld();
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    world.addObject(new Background());
+    world.addObject(new Player1Tank);
+    world.addObject(new Player2Tank);
+
+    world.run();
+   // const uint8 *state = SDL_GetKeyboardState(NULL);
+
+
     return 0;
 }
+//string keyBoard_Event()
+//{
+//
+//}

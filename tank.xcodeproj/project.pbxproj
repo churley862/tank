@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		7D7D7BB81A4F9468008B645A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7D7BB71A4F9468008B645A /* main.cpp */; };
+		7D7D7BC01A4F95C2008B645A /* tank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7D7BBE1A4F95C2008B645A /* tank.cpp */; };
+		7D7D7BC11A4F95C2008B645A /* world.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7D7BBF1A4F95C2008B645A /* world.cpp */; };
+		7D7D7BC31A4F975F008B645A /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7D7BC21A4F975F008B645A /* libSDL2-2.0.0.dylib */; };
+		7D7D7BC91A4F97AA008B645A /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7D7BC41A4F97AA008B645A /* libSDL2_image-2.0.0.dylib */; };
+		7D7D7BCA1A4F97AA008B645A /* libSDL2_mixer-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7D7BC51A4F97AA008B645A /* libSDL2_mixer-2.0.0.dylib */; };
+		7D7D7BCB1A4F97AA008B645A /* libSDL2_ttf-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7D7BC61A4F97AA008B645A /* libSDL2_ttf-2.0.0.dylib */; };
+		7D7D7BCC1A4F97AA008B645A /* libSDL2_gfx-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7D7BC71A4F97AA008B645A /* libSDL2_gfx-1.0.0.dylib */; };
+		7D7D7BCD1A4F97AA008B645A /* libSDL2_net-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7D7BC81A4F97AA008B645A /* libSDL2_net-2.0.0.dylib */; };
+		7D7D7BD01A4F9E8C008B645A /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7D7BCE1A4F9E8C008B645A /* timer.cpp */; };
+		7D7D7BD31A4FA718008B645A /* Projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7D7BD11A4FA718008B645A /* Projectile.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +35,20 @@
 /* Begin PBXFileReference section */
 		7D7D7BB41A4F9468008B645A /* tank */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tank; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D7D7BB71A4F9468008B645A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7D7D7BBE1A4F95C2008B645A /* tank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tank.cpp; sourceTree = "<group>"; };
+		7D7D7BBF1A4F95C2008B645A /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
+		7D7D7BC21A4F975F008B645A /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../usr/local/Cellar/sdl2/2.0.3/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		7D7D7BC41A4F97AA008B645A /* libSDL2_image-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_image-2.0.0.dylib"; path = "../../../usr/local/Cellar/sdl2_image/2.0.0_1/lib/libSDL2_image-2.0.0.dylib"; sourceTree = "<group>"; };
+		7D7D7BC51A4F97AA008B645A /* libSDL2_mixer-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_mixer-2.0.0.dylib"; path = "../../../usr/local/Cellar/sdl2_mixer/2.0.0/lib/libSDL2_mixer-2.0.0.dylib"; sourceTree = "<group>"; };
+		7D7D7BC61A4F97AA008B645A /* libSDL2_ttf-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_ttf-2.0.0.dylib"; path = "../../../usr/local/Cellar/sdl2_ttf/2.0.12/lib/libSDL2_ttf-2.0.0.dylib"; sourceTree = "<group>"; };
+		7D7D7BC71A4F97AA008B645A /* libSDL2_gfx-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_gfx-1.0.0.dylib"; path = "../../../usr/local/Cellar/sdl2_gfx/1.0.0/lib/libSDL2_gfx-1.0.0.dylib"; sourceTree = "<group>"; };
+		7D7D7BC81A4F97AA008B645A /* libSDL2_net-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_net-2.0.0.dylib"; path = "../../../usr/local/Cellar/sdl2_net/2.0.0/lib/libSDL2_net-2.0.0.dylib"; sourceTree = "<group>"; };
+		7D7D7BCE1A4F9E8C008B645A /* timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer.cpp; sourceTree = "<group>"; };
+		7D7D7BCF1A4F9E8C008B645A /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
+		7D7D7BD11A4FA718008B645A /* Projectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Projectile.cpp; sourceTree = "<group>"; };
+		7D7D7BD21A4FA718008B645A /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
+		7D7D7BD41A4FB3DC008B645A /* tank.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tank.hpp; sourceTree = "<group>"; };
+		7D7D7BD51A4FB3DC008B645A /* world.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = world.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +56,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D7D7BC91A4F97AA008B645A /* libSDL2_image-2.0.0.dylib in Frameworks */,
+				7D7D7BCA1A4F97AA008B645A /* libSDL2_mixer-2.0.0.dylib in Frameworks */,
+				7D7D7BCB1A4F97AA008B645A /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
+				7D7D7BCC1A4F97AA008B645A /* libSDL2_gfx-1.0.0.dylib in Frameworks */,
+				7D7D7BCD1A4F97AA008B645A /* libSDL2_net-2.0.0.dylib in Frameworks */,
+				7D7D7BC31A4F975F008B645A /* libSDL2-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +71,12 @@
 		7D7D7BAB1A4F9468008B645A = {
 			isa = PBXGroup;
 			children = (
+				7D7D7BC41A4F97AA008B645A /* libSDL2_image-2.0.0.dylib */,
+				7D7D7BC51A4F97AA008B645A /* libSDL2_mixer-2.0.0.dylib */,
+				7D7D7BC61A4F97AA008B645A /* libSDL2_ttf-2.0.0.dylib */,
+				7D7D7BC71A4F97AA008B645A /* libSDL2_gfx-1.0.0.dylib */,
+				7D7D7BC81A4F97AA008B645A /* libSDL2_net-2.0.0.dylib */,
+				7D7D7BC21A4F975F008B645A /* libSDL2-2.0.0.dylib */,
 				7D7D7BB61A4F9468008B645A /* tank */,
 				7D7D7BB51A4F9468008B645A /* Products */,
 			);
@@ -58,6 +94,14 @@
 			isa = PBXGroup;
 			children = (
 				7D7D7BB71A4F9468008B645A /* main.cpp */,
+				7D7D7BD51A4FB3DC008B645A /* world.hpp */,
+				7D7D7BBF1A4F95C2008B645A /* world.cpp */,
+				7D7D7BD41A4FB3DC008B645A /* tank.hpp */,
+				7D7D7BBE1A4F95C2008B645A /* tank.cpp */,
+				7D7D7BD21A4FA718008B645A /* Projectile.h */,
+				7D7D7BD11A4FA718008B645A /* Projectile.cpp */,
+				7D7D7BCF1A4F9E8C008B645A /* timer.h */,
+				7D7D7BCE1A4F9E8C008B645A /* timer.cpp */,
 			);
 			path = tank;
 			sourceTree = "<group>";
@@ -119,6 +163,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D7D7BB81A4F9468008B645A /* main.cpp in Sources */,
+				7D7D7BC11A4F95C2008B645A /* world.cpp in Sources */,
+				7D7D7BD31A4FA718008B645A /* Projectile.cpp in Sources */,
+				7D7D7BC01A4F95C2008B645A /* tank.cpp in Sources */,
+				7D7D7BD01A4F9E8C008B645A /* timer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +250,22 @@
 		7D7D7BBC1A4F9468008B645A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+					/usr/local/include/SDL2,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sdl2/2.0.3/lib,
+					/usr/local/Cellar/sdl2_image/2.0.0_1/lib,
+					/usr/local/Cellar/sdl2_mixer/2.0.0/lib,
+					/usr/local/Cellar/sdl2_ttf/2.0.12/lib,
+					/usr/local/Cellar/sdl2_gfx/1.0.0/lib,
+					/usr/local/Cellar/sdl2_net/2.0.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -209,6 +273,22 @@
 		7D7D7BBD1A4F9468008B645A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+					/usr/local/include/SDL2,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sdl2/2.0.3/lib,
+					/usr/local/Cellar/sdl2_image/2.0.0_1/lib,
+					/usr/local/Cellar/sdl2_mixer/2.0.0/lib,
+					/usr/local/Cellar/sdl2_ttf/2.0.12/lib,
+					/usr/local/Cellar/sdl2_gfx/1.0.0/lib,
+					/usr/local/Cellar/sdl2_net/2.0.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
