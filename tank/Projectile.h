@@ -17,6 +17,8 @@ public :
     Projectile(int init_x,int init_y);
     ~Projectile();
 
+    void collide(WorldObject& wo) { wo.kill(); kill(); }
+
     const SDL_Rect* rect() const { return &loc; }
     void tick();
 private :

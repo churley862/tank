@@ -58,7 +58,8 @@ void World::run()
         SDL_RenderClear(renderer);
         for (DisplayObject* wo : stuff)
         {
-            wo->tick();
+            if (!wo->is_dead())
+                wo->tick();
         }
         SDL_RenderPresent(renderer);
         checkCollisions();
@@ -75,20 +76,26 @@ void World::checkCollisions()
 {
     for (auto pos1 = stuff.begin(); pos1 !=stuff.end(); pos1++)
     {
-        if (WorldObject* wobj1 = dynamic_cast<WorldObject*>(*pos1))
+        if (!(*pos1)->is_dead())
         {
-            for (auto pos2 = next(pos1); pos2 !=stuff.end(); pos2++)
+            if (WorldObject* wobj1 = dynamic_cast<WorldObject*>(*pos1))
             {
-                if(WorldObject* wobj2 = dynamic_cast<WorldObject*>(*pos2))
+                for (auto pos2 = next(pos1); pos2 !=stuff.end(); pos2++)
                 {
-                    if(wobj1->is_overlap(*wobj2))
+                    if (!(*pos2)->is_dead())
                     {
-                        wobj1->collide(*wobj2);
-                        wobj2->collide(*wobj1);
+                        if(WorldObject* wobj2 = dynamic_cast<WorldObject*>(*pos2))
+                        {
+                            if(wobj1->is_overlap(*wobj2))
+                            {
+                                wobj1->collide(*wobj2);
+                                wobj2->collide(*wobj1);
+                            }
+                        }
                     }
                 }
-            }
 
+            }
         }
     }
 }

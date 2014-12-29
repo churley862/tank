@@ -10,17 +10,20 @@ class World;
 class DisplayObject
 {
 public:
-    DisplayObject() {}
+    DisplayObject() : dead(false) {}
     virtual ~DisplayObject() {}
     virtual void tick() {}
+    virtual void kill() { dead = true; }
     virtual bool is_dead()
     {
-        return false;
+        return dead;
     }
 
 protected:
     SDL_Renderer* renderer();
     World& world();
+    
+    bool dead;
 };
 
 class WorldObject : public DisplayObject
