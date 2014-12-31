@@ -16,17 +16,30 @@ public:
     {
         return &loc;
     }
-    
-    void collide(WorldObject& wo) { undo_move(); }
+
+    void collide(WorldObject& wo) {
+        undo_move();
+    }
 
     const int speed = 3;
-    void left() { last_move = -speed; loc.x += last_move; moving_left = true; }
-    void right() { last_move = speed; loc.x += last_move; moving_left = false; }
-    void undo_move() { loc.x -= last_move; last_move = 0; }
+    void left() {
+        last_move = -speed;
+        loc.x += last_move;
+        moving_left = true;
+    }
+    void right() {
+        last_move = speed;
+        loc.x += last_move;
+        moving_left = false;
+    }
+    void undo_move() {
+        loc.x -= last_move;
+        last_move = 0;
+    }
 
 protected:
     int last_move;
-    
+
     SDL_Texture* tank;
     SDL_Rect loc;
     Timer reload;

@@ -19,7 +19,9 @@ public :
 
     void collide(WorldObject& wo);
 
-    const SDL_Rect* rect() const { return &loc; }
+    const SDL_Rect* rect() const {
+        return &loc;
+    }
     void tick();
 private :
     double x,y;

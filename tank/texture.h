@@ -17,19 +17,19 @@ class Texture
 {
 private:
     static std::map<std::string, SDL_Texture*> textures;
-    
+
 public:
     static SDL_Texture* getTexture(const std::string& fname)
     {
         auto value = textures.find(fname);
-        
+
         if (value == textures.end())
         {
             SDL_Texture* t = World::getWorld().loadTexture(fname.c_str());
             textures[fname] = t;
             return t;
         }
-        
+
         return value->second;
     }
 };

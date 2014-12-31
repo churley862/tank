@@ -13,7 +13,9 @@ public:
     DisplayObject() : dead(false) {}
     virtual ~DisplayObject() {}
     virtual void tick() {}
-    virtual void kill() { dead = true; }
+    virtual void kill() {
+        dead = true;
+    }
     virtual bool is_dead()
     {
         return dead;
@@ -22,7 +24,7 @@ public:
 protected:
     SDL_Renderer* renderer();
     World& world();
-    
+
     bool dead;
 };
 
