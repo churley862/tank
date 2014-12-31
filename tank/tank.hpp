@@ -20,8 +20,8 @@ public:
     void collide(WorldObject& wo) { undo_move(); }
 
     const int speed = 3;
-    void left() { last_move = -speed; loc.x += last_move; }
-    void right() { last_move = speed; loc.x += last_move; }
+    void left() { last_move = -speed; loc.x += last_move; moving_left = true; }
+    void right() { last_move = speed; loc.x += last_move; moving_left = false; }
     void undo_move() { loc.x -= last_move; last_move = 0; }
 
 protected:
@@ -30,6 +30,7 @@ protected:
     SDL_Texture* tank;
     SDL_Rect loc;
     Timer reload;
+    bool moving_left;
 };
 
 class Player1Tank : public Tank

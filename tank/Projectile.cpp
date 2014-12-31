@@ -7,12 +7,22 @@
 //
 
 #include "Projectile.h"
-
-Projectile::Projectile(int init_x, int init_y)
+#include "explosion.h"
+Projectile::Projectile(int init_x, int init_y, bool shot_left)
 {
     x = init_x;
     y = init_y;
     vx = 3;
+    
+    if (shot_left)
+    {
+        vx = -vx;
+    }
+    else
+    {
+        x += 30;
+    }
+    
     vy = -6;
     projectile = IMG_LoadTexture(renderer(), "assets/small_tank.png" );
 
@@ -39,4 +49,15 @@ void Projectile::tick()
     loc.y = y;
 
     SDL_RenderCopy(renderer(), projectile, 0, &loc);
+}
+
+void Projectile::collide(WorldObject& wo)
+{
+    wo.kill();
+    kill();
+    
+    for (int i = 0; i < 75; ++i )
+    {
+        World::getWorld().addObject(new Explosion(x,y));
+    }
 }

@@ -14,10 +14,10 @@
 class Projectile : public WorldObject
 {
 public :
-    Projectile(int init_x,int init_y);
+    Projectile(int init_x,int init_y, bool shot_left);
     ~Projectile();
 
-    void collide(WorldObject& wo) { wo.kill(); kill(); }
+    void collide(WorldObject& wo);
 
     const SDL_Rect* rect() const { return &loc; }
     void tick();
@@ -26,9 +26,6 @@ private :
     double vx,vy;
     SDL_Texture* projectile;
     SDL_Rect loc;
-
-
-
 };
 
 

@@ -18,6 +18,8 @@
 		7D7D7BCD1A4F97AA008B645A /* libSDL2_net-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7D7BC81A4F97AA008B645A /* libSDL2_net-2.0.0.dylib */; };
 		7D7D7BD01A4F9E8C008B645A /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7D7BCE1A4F9E8C008B645A /* timer.cpp */; };
 		7D7D7BD31A4FA718008B645A /* Projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7D7BD11A4FA718008B645A /* Projectile.cpp */; };
+		7DCE90281A545D49004E080A /* explosion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE90261A545D49004E080A /* explosion.cpp */; };
+		7DCE902B1A5462B6004E080A /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE90291A5462B6004E080A /* texture.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +51,10 @@
 		7D7D7BD21A4FA718008B645A /* Projectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
 		7D7D7BD41A4FB3DC008B645A /* tank.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tank.hpp; sourceTree = "<group>"; };
 		7D7D7BD51A4FB3DC008B645A /* world.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = world.hpp; sourceTree = "<group>"; };
+		7DCE90261A545D49004E080A /* explosion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = explosion.cpp; sourceTree = "<group>"; };
+		7DCE90271A545D49004E080A /* explosion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = explosion.h; sourceTree = "<group>"; };
+		7DCE90291A5462B6004E080A /* texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = texture.cpp; sourceTree = "<group>"; };
+		7DCE902A1A5462B6004E080A /* texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = texture.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,10 @@
 				7D7D7BBF1A4F95C2008B645A /* world.cpp */,
 				7D7D7BD41A4FB3DC008B645A /* tank.hpp */,
 				7D7D7BBE1A4F95C2008B645A /* tank.cpp */,
+				7DCE90261A545D49004E080A /* explosion.cpp */,
+				7DCE90271A545D49004E080A /* explosion.h */,
+				7DCE90291A5462B6004E080A /* texture.cpp */,
+				7DCE902A1A5462B6004E080A /* texture.h */,
 				7D7D7BD21A4FA718008B645A /* Projectile.h */,
 				7D7D7BD11A4FA718008B645A /* Projectile.cpp */,
 				7D7D7BCF1A4F9E8C008B645A /* timer.h */,
@@ -165,6 +175,8 @@
 				7D7D7BB81A4F9468008B645A /* main.cpp in Sources */,
 				7D7D7BC11A4F95C2008B645A /* world.cpp in Sources */,
 				7D7D7BD31A4FA718008B645A /* Projectile.cpp in Sources */,
+				7DCE90281A545D49004E080A /* explosion.cpp in Sources */,
+				7DCE902B1A5462B6004E080A /* texture.cpp in Sources */,
 				7D7D7BC01A4F95C2008B645A /* tank.cpp in Sources */,
 				7D7D7BD01A4F9E8C008B645A /* timer.cpp in Sources */,
 			);
@@ -312,6 +324,7 @@
 				7D7D7BBD1A4F9468008B645A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

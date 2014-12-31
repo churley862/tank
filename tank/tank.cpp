@@ -14,6 +14,7 @@ Tank::Tank(int x)
     loc.h = 30;
     loc.w = 30;
     last_move = 0;
+    moving_left = true;
 }
 
 Tank::~Tank()
@@ -23,8 +24,10 @@ Tank::~Tank()
 
 void Tank::tick()
 {
-
-    SDL_RenderCopy(renderer(), tank, 0, &loc);
+    if (moving_left)
+        SDL_RenderCopy(renderer(), tank, 0, &loc);
+    else
+        SDL_RenderCopyEx(renderer(), tank, 0, &loc, 0, 0, SDL_FLIP_HORIZONTAL);
 }
 
 void Player1Tank::tick()
@@ -41,7 +44,7 @@ void Player1Tank::tick()
     if (state[SDL_SCANCODE_SPACE] && reload.getTime() > 250)
     {
         reload.reset();
-        world().addObject(new Projectile(loc.x, loc.y));
+        world().addObject(new Projectile(loc.x, loc.y, moving_left));
     }
 
     Tank::tick();
@@ -57,6 +60,11 @@ void Player2Tank::tick()
     if (state[SDL_SCANCODE_A])
     {
         left();
+    }
+    if (state[SDL_SCANCODE_S] && reload.getTime() > 250)
+    {
+        reload.reset();
+        world().addObject(new Projectile(loc.x, loc.y, moving_left));
     }
 
     Tank::tick();
