@@ -55,7 +55,7 @@ void Projectile::collide(WorldObject& wo)
 {
     wo.kill();
     kill();
-
+    
     for (int i = 0; i < 75; ++i )
     {
         World::getWorld().addObject(new Explosion(x,y));

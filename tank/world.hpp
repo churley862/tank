@@ -16,7 +16,7 @@ public:
     virtual void kill() {
         dead = true;
     }
-    virtual bool is_dead()
+    virtual bool is_dead() const
     {
         return dead;
     }
@@ -72,7 +72,7 @@ private:
     SDL_Window* window;
     SDL_Renderer* renderer;
     Timer fpsTimer;
-
+    Timer gravedigger;
     std::list<DisplayObject*> stuff;
 };
 

@@ -7,15 +7,28 @@ int main (int argc, char* args[])
 
     world.addObject(new Background());
     world.addObject(new Player1Tank);
+    bool T1alive = true;
     world.addObject(new Player2Tank);
+    bool T2alive = true;
 
     world.run();
-    // const uint8 *state = SDL_GetKeyboardState(NULL);
+    
 
 
     return 0;
 }
-//string keyBoard_Event()
-//{
-//
-//}
+//    const Uint8 *state = SDL_GetKeyboardState(NULL);
+//    if (state[SDL_SCANCODE_R])
+//        {
+//            if(!T1alive)
+//            {
+//                world.addObject(new Player1Tank);
+//            }
+//        }
+//    if (state[SDL_SCANCODE_LSHIFT])
+//    {
+//        if(!T2alive)
+//        {
+//            world.addObject(new Player2Tank);
+//        }
+//    }

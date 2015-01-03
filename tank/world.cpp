@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iterator>
 #include "world.hpp"
-
+#include <list>
 using namespace std;
 
 World::World()
@@ -41,6 +41,11 @@ Background :: ~Background()
     SDL_DestroyTexture(background);
 }
 
+
+bool is_dead(const DisplayObject* wo)
+{
+    return wo->is_dead();
+}
 void World::run()
 {
 
@@ -51,7 +56,12 @@ void World::run()
     {
         fpsTimer.reset();
         SDL_PollEvent(&e);
-
+        
+        if (gravedigger.getTime() > 1000)
+        {
+        gravedigger.reset();
+        stuff.remove_if (is_dead);
+        }
         if (e.type == SDL_QUIT)
             running = false;
 
@@ -74,6 +84,7 @@ void Background::tick()
 
 void World::checkCollisions()
 {
+    
     for (auto pos1 = stuff.begin(); pos1 !=stuff.end(); pos1++)
     {
         if (!(*pos1)->is_dead())
@@ -99,3 +110,6 @@ void World::checkCollisions()
         }
     }
 }
+
+
+
