@@ -17,7 +17,10 @@ public :
     Projectile(int init_x,int init_y, bool shot_left);
     ~Projectile();
 
-    void collide(WorldObject& wo);
+    virtual IdType id() {
+        return projectile_id;
+    }
+    void collide(DisplayObject& wo);
 
     const SDL_Rect* rect() const {
         return &loc;

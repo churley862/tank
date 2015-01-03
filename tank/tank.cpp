@@ -8,7 +8,7 @@ Tank::Tank(int x)
     {
         throw "Unable to load tank asset";
     }
-
+    hit = false;
     loc.x = x;
     loc.y = 450;
     loc.h = 30;
@@ -22,12 +22,21 @@ Tank::~Tank()
     SDL_DestroyTexture(tank);
 }
 
+void Tank::respawn()
+{
+    hit = false;
+}
+
 void Tank::tick()
 {
-    if (moving_left)
-        SDL_RenderCopy(renderer(), tank, 0, &loc);
-    else
-        SDL_RenderCopyEx(renderer(), tank, 0, &loc, 0, 0, SDL_FLIP_HORIZONTAL);
+    // if hit, don't display
+    if (!hit)
+    {
+        if (moving_left)
+            SDL_RenderCopy(renderer(), tank, 0, &loc);
+        else
+            SDL_RenderCopyEx(renderer(), tank, 0, &loc, 0, 0, SDL_FLIP_HORIZONTAL);
+    }
 }
 
 void Player1Tank::tick()
@@ -45,6 +54,10 @@ void Player1Tank::tick()
     {
         reload.reset();
         world().addObject(new Projectile(loc.x, loc.y, moving_left));
+    }
+    if (state[SDL_SCANCODE_RSHIFT] && hit)
+    {
+        respawn();
     }
 
     Tank::tick();
@@ -66,8 +79,31 @@ void Player2Tank::tick()
         reload.reset();
         world().addObject(new Projectile(loc.x, loc.y, moving_left));
     }
+    if (state[SDL_SCANCODE_R] && hit)
+    {
+        respawn();
+    }
 
     Tank::tick();
 }
 
+void Tank::collide(DisplayObject& wo) {
+    // check if tank or projectile
+    switch (wo.id())
+    {
+    case projectile_id:
+        // else projectile, I am dead :-(
+        // hide and wait for respawn key
+        hit_by_projectile();
+        break;
+
+    case tank_id:
+        undo_move();
+        break;
+
+    case misc:
+        // do nothing
+        break;
+    }
+}
 

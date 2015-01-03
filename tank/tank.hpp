@@ -17,9 +17,19 @@ public:
         return &loc;
     }
 
-    void collide(WorldObject& wo) {
-        undo_move();
+    void collide(DisplayObject& wo);
+    virtual IdType id() {
+        return tank_id;
     }
+
+    void hit_by_projectile()
+    {
+        hit = true;
+    }
+
+    // add hit_by_projectile method
+    // add respawn method
+    void respawn();
 
     const int speed = 3;
     void left() {
@@ -39,6 +49,8 @@ public:
 
 protected:
     int last_move;
+    // add bool flag, when hit to prevent display
+    bool hit;
 
     SDL_Texture* tank;
     SDL_Rect loc;

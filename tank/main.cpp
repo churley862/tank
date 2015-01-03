@@ -7,12 +7,10 @@ int main (int argc, char* args[])
 
     world.addObject(new Background());
     world.addObject(new Player1Tank);
-    bool T1alive = true;
     world.addObject(new Player2Tank);
-    bool T2alive = true;
 
     world.run();
-    
+
 
 
     return 0;

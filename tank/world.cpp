@@ -56,11 +56,11 @@ void World::run()
     {
         fpsTimer.reset();
         SDL_PollEvent(&e);
-        
+
         if (gravedigger.getTime() > 1000)
         {
-        gravedigger.reset();
-        stuff.remove_if (is_dead);
+            gravedigger.reset();
+            stuff.remove_if (is_dead);
         }
         if (e.type == SDL_QUIT)
             running = false;
@@ -84,28 +84,21 @@ void Background::tick()
 
 void World::checkCollisions()
 {
-    
+
     for (auto pos1 = stuff.begin(); pos1 !=stuff.end(); pos1++)
     {
         if (!(*pos1)->is_dead())
         {
-            if (WorldObject* wobj1 = dynamic_cast<WorldObject*>(*pos1))
+            for (auto pos2 = next(pos1); pos2 !=stuff.end(); pos2++)
             {
-                for (auto pos2 = next(pos1); pos2 !=stuff.end(); pos2++)
+                if (!(*pos2)->is_dead())
                 {
-                    if (!(*pos2)->is_dead())
+                    if((*pos1)->is_overlap(**pos2))
                     {
-                        if(WorldObject* wobj2 = dynamic_cast<WorldObject*>(*pos2))
-                        {
-                            if(wobj1->is_overlap(*wobj2))
-                            {
-                                wobj1->collide(*wobj2);
-                                wobj2->collide(*wobj1);
-                            }
-                        }
+                        (*pos1)->collide(**pos2);
+                        (*pos2)->collide(**pos1);
                     }
                 }
-
             }
         }
     }

@@ -21,6 +21,22 @@ public:
         return dead;
     }
 
+    virtual const SDL_Rect* rect() const
+    {
+        return nullptr;
+    }
+    virtual bool is_overlap(const DisplayObject& wo)
+    {
+        return false;
+    }
+    virtual void collide(DisplayObject& wo) {}
+
+    enum IdType { misc, tank_id, projectile_id };
+
+    virtual IdType id() {
+        return misc;
+    }
+
 protected:
     SDL_Renderer* renderer();
     World& world();
@@ -31,15 +47,9 @@ protected:
 class WorldObject : public DisplayObject
 {
 public :
-    virtual bool is_overlap(const WorldObject& wo)
+    virtual bool is_overlap(const DisplayObject& wo)
     {
         return SDL_HasIntersection(rect(), wo.rect());
-    }
-    virtual void collide(WorldObject& wo) {}
-
-    virtual const SDL_Rect* rect() const
-    {
-        return nullptr;
     }
 };
 

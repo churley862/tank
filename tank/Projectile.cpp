@@ -51,11 +51,11 @@ void Projectile::tick()
     SDL_RenderCopy(renderer(), projectile, 0, &loc);
 }
 
-void Projectile::collide(WorldObject& wo)
+void Projectile::collide(DisplayObject& wo)
 {
-    wo.kill();
+    // wo.kill();
     kill();
-    
+
     for (int i = 0; i < 75; ++i )
     {
         World::getWorld().addObject(new Explosion(x,y));
